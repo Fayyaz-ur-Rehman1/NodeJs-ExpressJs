@@ -1,0 +1,27 @@
+// "express": "^4.21.1"
+// "express" : "version"
+// "express" : "major,recomonded bug fixes,minor fixes"
+// minore fixes small update optional update
+// recomonded bug fixes (security fix) => add new feature and we are fix critecaly security bug fix
+// major if you update major realese means you big update on your framework if you update major realse plz match current version then you will updated 
+
+// "express": "^4.21.1"
+^ -> you lock major realese this version fix in the project but carrot symboll ^ autometic update recomonded , minor but not update major realese
+
+^4.21.1
+^4.22.2
+^4.21.3
+^4.21.4
+^4.21.5
+updated -> minor , recomonded
+5.1.0 -> not updated
+
+~4.21.2
+~4.21.3
+~4.21.4
+updated -> minor
+~4.22.4 -> not updated
+
+4.18.2 
+not updated 
+4.19.3 -> not updated 
