@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./partials/nav.css">
+    <title>Home Page</title>
+    <%- include("./partials/head") %>
+        <style>
+            /* Custom Background Styling */
+            body {
+                background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+                min-height: 100vh;
+            }
+
+            .card img {
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border: none;
+                border-radius: 8px;
+            }
+
+            .card-title {
+                font-size: 1.25rem;
+                font-weight: bold;
+            }
+
+            .btn-primary {
+                background-color: #007bff;
+                border-color: #007bff;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                transform: translateY(-3px);
+            }
+        </style>
+</head>
+
+<body>
+
+    <%- include("./partials/nav") %>
+
+        <div class="container my-5">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                <% blogs.forEach(blog=> { %>
+                    <div class="col">
+                        <div class="card">
+                            <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="Blog Cover">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= blog.title %>
+                                </h5>
+                                <div class="d-flex justify-content-between gap-2">
+                                    <a href="/blog/<%= blog._id %>" class="btn btn-primary flex-grow-1">View</a>
+                                    <% if (user && user._id.toString()===blog.createdBy.toString()) { %>
+                                        <!-- Delete form -->
+                                        <form action="/blog/<%= blog._id %>/delete" method="POST" style="flex-grow: 1;">
+                                            <button type="submit" class="btn btn-danger w-100">Delete</button>
+                                        </form>
+                                        <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+
+        <%- include("./partials/script") %>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <%- include("./partials/head") %>
+        <title>Add Blog</title>
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> -->
+        <style>
+            /* Custom Styling */
+            body {
+                background-color: #f8f9fa;
+            }
+
+            .form-container {
+                background: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                padding: 2rem;
+                margin-top: 3rem;
+            }
+
+            .form-container h1 {
+                font-size: 1.8rem;
+                font-weight: bold;
+                margin-bottom: 1rem;
+                text-align: center;
+                color: #343a40;
+            }
+
+            .form-label {
+                font-weight: 600;
+                color: #495057;
+            }
+
+            .form-control {
+                border-radius: 5px;
+            }
+
+            .btn-primary {
+                width: 100%;
+                padding: 0.6rem;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include("./partials/nav") %>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="form-container">
+                        <h1>Add a New Blog</h1>
+                        <form action="/blog" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="coverImage" class="form-label">Cover Image</label>
+                                <input type="file" class="form-control" id="coverImage" name="coverImage"
+                                    aria-describedby="coverImage">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" name="title"
+                                    aria-describedby="title">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="body" class="form-label">Body</label>
+                                <textarea name="body" class="form-control" id="body" rows="5"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include("./partials/script") %>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
